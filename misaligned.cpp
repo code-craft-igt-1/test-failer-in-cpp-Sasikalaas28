@@ -1,21 +1,31 @@
-#include <assert.h>
 #include <iostream>
-
-int printColorMap() {
+#include <sstream>
+#include <iomanip>
+#include "./misaligned.h"
+#include "./test-colormap.h"
+std::string printColorMap() {
     const char* majorColor[] = {"White", "Red", "Black", "Yellow", "Violet"};
     const char* minorColor[] = {"Blue", "Orange", "Green", "Brown", "Slate"};
     int i = 0, j = 0;
+    std::stringstream buffer;
+    buffer << std::setw(20) << "ColorPairNumber";
+    buffer << std::setw(5) << " | ";
+    buffer << std::setw(15) << "MajorColor";
+    buffer << std::setw(5) << " | ";
+    buffer << std::setw(15) << "MinorColor";
+    buffer << "\n";
     for (i = 0; i < 5; i++) {
         for (j = 0; j < 5; j++) {
-            std::cout << i * 5 + j << " | " << majorColor[i] << " | " << minorColor[i] << "\n";
+            buffer << std::setw(20) << i * 5 + j + 1 << std::setw(5) << " | ";
+            buffer << std::setw(15) << majorColor[i] << std::setw(5) << " | ";
+            buffer << std::setw(15) << minorColor[j] << "\n";
         }
     }
-    return i * j;
+    std::cout << buffer.str() << std::endl;
+    return buffer.str();
 }
 
 int main() {
-    int result = printColorMap();
-    assert(result == 25);
-    std::cout << "All is well (maybe!)\n";
+    testPrintColorMap();
     return 0;
 }

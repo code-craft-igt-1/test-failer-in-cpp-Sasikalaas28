@@ -1,5 +1,7 @@
 #include <assert.h>
 #include <iostream>
+#include "./tshirts.h"
+#include "./test-tshirt.h"
 
 char size(int cms) {
     char sizeName = '\0';
@@ -14,9 +16,6 @@ char size(int cms) {
 }
 
 int main() {
-    assert(size(37) == 'S');
-    assert(size(40) == 'M');
-    assert(size(43) == 'L');
-    std::cout << "All is well (maybe!)\n";
+    testTshirt();
     return 0;
 }
