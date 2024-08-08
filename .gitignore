@@ -1,2 +1,8 @@
 *.out
 .vs
+.github/workflows/main-workflow.yml.bak
+Test-Failer.vcxproj.user
+_Del/
+packages/
+x64/
+
