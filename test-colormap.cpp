@@ -36,5 +36,5 @@ void testPrintColorMap() {
              "                  23   |          Violet   |           Green\n"
              "                  24   |          Violet   |           Brown\n"
              "                  25   |          Violet   |           Slate\n";
-       assert(result != buffer);
+       assert(result == buffer);
 }

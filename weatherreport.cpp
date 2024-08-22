@@ -10,5 +10,6 @@ using std::string;
 int main() {
     TestRainy();
     TestHighPrecipitationAndLowWindspeed();
+    TestPartlyCloudy();
     return 0;
 }

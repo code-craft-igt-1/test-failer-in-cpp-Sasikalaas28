@@ -23,3 +23,4 @@ public:
 string Report(const WeatherSpace::IWeatherSensor& sensor);
 void TestRainy();
 void TestHighPrecipitationAndLowWindspeed();
+void TestPartlyCloudy();

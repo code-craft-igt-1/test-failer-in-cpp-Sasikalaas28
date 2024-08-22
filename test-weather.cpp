@@ -43,7 +43,7 @@ string Report(const WeatherSpace::IWeatherSensor& sensor) {
     if (sensor.TemperatureInC() > 25) {
         if (precipitation >= 20 && precipitation < 60)
             report = "Partly cloudy";
-        else if (sensor.WindSpeedKMPH() > 50)
+        else if (sensor.WindSpeedKMPH() > 50 || precipitation > 60)
             report = "Alert, Stormy with heavy rain";
     }
     return report;
@@ -67,5 +67,18 @@ void TestHighPrecipitationAndLowWindspeed() {
     // strengthen the assert to expose the bug
     // (function returns Sunny day, it should predict rain)
     string report = Report(sensor);
+    std::cout << report << std::endl;
     assert(report.find("rain") != string::npos);
+}
+
+// Test Partly Cloudy
+void TestPartlyCloudy() {
+    // This instance of stub should have precipitation (20<=60<)
+    SensorStub sensor(70, 50, 30, 48);
+
+    // strengthen the assert to expose the bug
+    // (function returns Sunny day, it should predict rain)
+    string report = Report(sensor);
+    std::cout << report << std::endl;
+    assert(report.find("cloudy") != string::npos);
 }

@@ -3,19 +3,20 @@
 #include "./tshirts.h"
 #include "./test-tshirt.h"
 
-char size(int cms) {
+char tshirtSize(int cms) {
     char sizeName = '\0';
     if (cms < 38) {
         sizeName = 'S';
-    } else if (cms > 38 && cms < 42) {
+    } else if (cms >= 38 && cms < 42) {
         sizeName = 'M';
-    } else if (cms > 42) {
+    } else if (cms >= 42) {
         sizeName = 'L';
     }
+    std::cout << "Your Tshirt Size is " << sizeName << std::endl;
     return sizeName;
 }
 
 int main() {
-    testTshirt();
+    testTshirtSize();
     return 0;
 }
